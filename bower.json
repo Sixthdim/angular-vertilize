@@ -5,7 +5,6 @@
   "main": "./angular-vertilize.js",
   "ignore": [
     "**/.*",
-    "*.min.js",
     "*.html",
     "package.json"
   ],
