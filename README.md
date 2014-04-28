@@ -3,7 +3,7 @@
 An [AngularJS](http://angularjs.org/) directive to vertically equalize a group of elements with varying heights. In other words, it dynamically makes a group of elements the same height.
 
 ## Usage
-First, add `angular.vertilize` to your Angular application module dependencies. Then, use the `vertilize-container` and `vertilize` directives on the HTML elements that you want to have equal heights maintained.
+First, add `angular.vertilize` to your Angular application module dependencies. Then, use the `vertilize-container` directive and child `vertilize` directives on the HTML elements that you want to have equal heights maintained.
 
 ## Example
 ```html
