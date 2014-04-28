@@ -10,7 +10,7 @@
     "package.json"
   ],
   "dependencies": {
-    "jquery": "~1.11.0",
+    "jquery": ">=1.11.0",
     "angular": "~1.2.0"
   }
 }
