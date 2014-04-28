@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Vertilize Directive</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+      .jumbotron {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body ng-app="vertilizeApp">
+    <div class="container">
+      <div class="jumbotron">
+        <h1>angular-vertilize</h1>
+
+        <p>An <a href="http://angularjs.org/">AngularJS</a> directive to vertically equalize a group of elements with varying heights. In other words, it dynamically makes a group of elements the same height.</p>
+
+        <iframe
+        src="http://ghbtns.com/github-btn.html?user=Sixthdim&amp;repo=angular-vertilize&amp;type=watch&amp;size=large&amp;count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+        <iframe
+        src="http://ghbtns.com/github-btn.html?user=Sixthdim&amp;repo=angular-vertilize&amp;type=fork&amp;size=large&amp;count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+        <iframe
+        src="http://ghbtns.com/github-btn.html?user=Sixthdim&amp;repo=angular-vertilize&amp;type=follow&amp;size=large&amp;count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+
+        <a href="https://github.com/Sixthdim/angular-vertilize"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+      </div>
+      <p>
+        <h2>Getting Started</h2>
+        <ol>
+          <li>Install <code>angular-vertilize</code>.</li>
+          <li>Include <code>angular-vertilize.js</code>.</li>
+          <li>Add <code>angular.vertilize</code> to your app module dependencies.</li>
+          <li>Use the <code>vertilize-container</code> and <code>vertilize</code> directives.</li>
+        </ol>
+
+        Manual Download:
+        <a href="./angular-vertilize.js">angular-vertilize.js</a> or
+        <a href="./angular-vertilize.min.js">angular-vertilize.min.js</a>.
+      </p>
+      <hr>
+      <div ng-controller="DemoCtrl">
+        <h2>Demo</h2>
+        <p>This little demo uses Twitter Bootstrap 3 for styling and shows how element heights can be maintained in a grid.</p>
+        <p class="btn-group">
+          <button class="btn btn-primary" ng-click="generate(4)">Randomize Content</button>
+        </p>
+
+        <!--Vertilize Container-->
+        <div vertilize-container class="row">
+          <!--Vertilize Item-->
+          <div ng-repeat="col in columns" class="col-sm-3">
+            <div class="well">
+              <div vertilize>
+                <h3 class="panel-title">{{ col.title }}</h3>
+                <p>{{ col.body }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Code</h2>
+        <pre ng-non-bindable>&lt;div <strong>vertilize-container</strong> class=&quot;row&quot;&gt;
+  &lt;div ng-repeat=&quot;col in columns&quot; class=&quot;col-sm-3&quot;&gt;
+    &lt;div class=&quot;well&quot;&gt;
+      &lt;div <strong>vertilize</strong>&gt;
+        &lt;h3 class=&quot;panel-title&quot;&gt;{{ col.title }}&lt;/h3&gt;
+        &lt;p&gt;{{ col.body }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+    <script src="./angular-vertilize.js" type="text/javascript"></script>
+
+    <!--App Script-->
+    <script type="text/javascript">
+      // App Dependencies
+      var module = angular.module('vertilizeApp', ['angular.vertilize'])
+
+      // Demo Controller
+      module.controller('DemoCtrl', [
+        '$scope',
+        function($scope){
+          // Filler text
+          var ipsum = [
+            'Bacon ipsum dolor sit amet bacon beef ribs rump, drumstick pastrami kielbasa chuck ground round andouille shank landjaeger meatloaf turducken tenderloin. Salami biltong pancetta, chuck jerky capicola boudin short ribs corned beef ribeye. Boudin beef chuck, ribeye swine kielbasa leberkas kevin porchetta chicken cow strip steak shank. Hamburger meatloaf kielbasa pastrami kevin, pork loin drumstick t-bone tongue.',
+            'Kevin tongue boudin, drumstick pork chop venison ground round. Tongue ham hock rump pastrami shankle turkey, chicken ribeye kevin landjaeger fatback jowl meatball ball tip hamburger. Strip steak kevin turkey, jowl pork loin ball tip pork chop salami swine rump leberkas. Shank t-bone pork belly strip steak prosciutto filet mignon, chuck pig pork loin kielbasa jowl ham. Cow filet mignon meatball beef chuck strip steak short ribs jerky pork, pork loin turkey andouille. Leberkas swine turducken tail kevin jowl prosciutto landjaeger pastrami boudin chuck. Beef andouille pastrami turkey, shank porchetta tenderloin brisket tongue jerky.',
+            'Landjaeger kevin tail sirloin fatback. T-bone landjaeger boudin pork turducken ham ham hock. Prosciutto chuck meatloaf beef ribs frankfurter. Jowl short loin fatback, short ribs shoulder bresaola corned beef turkey boudin beef ribs bacon brisket filet mignon prosciutto jerky. Strip steak filet mignon porchetta ball tip pork loin short ribs sirloin ribeye.',
+            'Bacon pastrami shankle shank ground round tri-tip fatback meatloaf flank short loin meatball swine. Doner kielbasa meatloaf sausage pork loin short loin pig boudin pork chop tongue frankfurter. Tongue ham hock rump pastrami shankle turkey, chicken ribeye kevin landjaeger fatback jowl meatball ball tip hamburger.',
+            'Cow porchetta short loin chuck turducken tail. Jerky spare ribs shoulder, bacon tail turkey biltong tri-tip ham hock pork chop kielbasa ground round salami. Capicola brisket pork belly turkey landjaeger doner rump tongue tail boudin flank pastrami chicken leberkas. Shank tongue shoulder shankle. Cow chicken prosciutto tongue sausage biltong hamburger. Bresaola beef ribs short loin, drumstick strip steak capicola pork belly pork loin ham frankfurter tri-tip. Ham hock leberkas turkey sausage, strip steak drumstick sirloin salami shankle bresaola short loin jerky andouille beef ribs.',
+            'Bacon pastrami shankle shank ground round tri-tip fatback meatloaf flank short loin meatball swine. Doner kielbasa meatloaf sausage pork loin short loin pig boudin pork chop tongue frankfurter.',
+            'Capicola brisket pork belly turkey landjaeger doner rump tongue tail boudin flank pastrami chicken leberkas.'
+          ];
+          // Column array
+          $scope.columns = [];
+          // Generate tile content
+          $scope.generate = function(count){
+            for (var i=0; i < count; i++){
+              if (angular.isUndefined($scope.columns[i])){
+                $scope.columns.push({
+                  title: 'Column ' + (i+1),
+                  body: ipsum[Math.floor(Math.random()*ipsum.length)]
+                });
+              } else {
+                $scope.columns[i].body = ipsum[Math.floor(Math.random()*ipsum.length)];
+              }
+            }
+          };
+          // First generate
+          $scope.generate(4);
+        }
+      ]);
+    </script>
+  </body>
+</html>

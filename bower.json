@@ -1,0 +1,16 @@
+{
+  "name": "angular-vertilize",
+  "description": "An AngularJS directive to vertically equalize a group of elements with varying heights.",
+  "version": "1.0.0",
+  "main": "./angular-vertilize.js",
+  "ignore": [
+    "**/.*",
+    "*.min.js",
+    "*.html",
+    "package.json"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "angular": "~1.2.0"
+  }
+}
