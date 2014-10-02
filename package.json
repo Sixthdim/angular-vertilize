@@ -1,5 +1,9 @@
 {
   "name": "angular-vertilize",
   "version": "1.0.0",
-  "repository": "https://github.com/Sixthdim/angular-vertilize.git"
+  "repository": "https://github.com/Sixthdim/angular-vertilize.git",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.6.0"
+  }
 }
