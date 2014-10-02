@@ -2,6 +2,10 @@
  * angular-vertilize 1.0.0
  * Christopher Collins
  * https://github.com/Sixthdim/angular-vertilize.git
+ *
+ * Shailendra Sharma
+ * https://github.com/sharma-shailendra
+ *
  * License: MIT
  */
 (function () {
@@ -65,19 +69,17 @@
 
           // Get my real height by cloning so my height is not affected.
           var getMyRealHeight = function(){
-            var clone = element.clone()
-              .removeAttr('vertilize')
-              .css({
-                height: '',
-                width: element.width(),
-                position: 'fixed',
-                top: 0,
-                left: 0,
-                visibility: 'hidden'
-              });
-            element.after(clone);
-            var realHeight = clone.height();
-            clone['remove']();
+            var originalHeight = element.css('height');
+
+            // remove height style temporarily
+            element.css({height:''});
+
+            // calculate outer height
+            var realHeight = $(element).outerHeight();
+
+            // set the height again ?
+            element.css({height:originalHeight});
+
             return realHeight;
           };
 
