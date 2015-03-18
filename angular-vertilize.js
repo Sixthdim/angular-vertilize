@@ -75,6 +75,7 @@
                 left: 0,
                 visibility: 'hidden'
               });
+            clone.find('*').css('position', 'relative')
             element.after(clone);
             var realHeight = clone.height();
             clone['remove']();
