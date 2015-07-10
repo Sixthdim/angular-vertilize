@@ -69,7 +69,7 @@
               .removeAttr('vertilize')
               .css({
                 height: '',
-                width: element.width(),
+                width: element.outerWidth(),
                 position: 'fixed',
                 top: 0,
                 left: 0,
