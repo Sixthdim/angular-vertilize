@@ -1,5 +1,5 @@
 /*!
- * angular-vertilize 1.0.0
+ * angular-vertilize 1.0.1
  * Christopher Collins
  * https://github.com/Sixthdim/angular-vertilize.git
  * License: MIT
@@ -46,7 +46,7 @@
             // Add window resize to digest cycle
             angular.element($window).bind('resize', function(){
               return $scope.$apply();
-            });            
+            });
           }
         ]
       };
