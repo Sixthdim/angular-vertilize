@@ -60,6 +60,10 @@
         restrict: 'EA',
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
+				
+					// Get scale
+					var scale = (attrs.vertilize)?(attrs.vertilize):(1);
+					
           // My index allocation
           var myIndex = parent.allocateMe();
 
@@ -76,7 +80,7 @@
                 visibility: 'hidden'
               });
             element.after(clone);
-            var realHeight = clone.height();
+            var realHeight = (1/scale)*clone.outerHeight(true);
             clone['remove']();
             return realHeight;
           };
@@ -91,7 +95,7 @@
           // Watch for tallest height change
           scope.$watch(parent.getTallestHeight, function(tallestHeight){
             if (tallestHeight){
-              element.css('height', tallestHeight);
+              element.outerHeight(scale*tallestHeight, true);
             }
           });
         }
