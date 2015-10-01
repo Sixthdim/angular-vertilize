@@ -30,8 +30,10 @@
             };
 
             // API: Update a child's height
-            _this.updateMyHeight = function(index, height){
-              _this.childrenHeights[index] = height;
+            _this.updateMyHeight = function(index, height, ifBiggerThan){
+              if ($window.innerWidth > ifBiggerThan) {
+                _this.childrenHeights[index] = height;
+              }
             };
 
             // API: Get tallest height
@@ -58,10 +60,14 @@
     function(){
       return {
         restrict: 'EA',
+        scope: {
+          ifBiggerThan: "@max"
+        },
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
           // My index allocation
           var myIndex = parent.allocateMe();
+          
 
           // Get my real height by cloning so my height is not affected.
           var getMyRealHeight = function(){
@@ -84,7 +90,7 @@
           // Watch my height
           scope.$watch(getMyRealHeight, function(myNewHeight){
             if (myNewHeight){
-              parent.updateMyHeight(myIndex, myNewHeight);
+              parent.updateMyHeight(myIndex, myNewHeight, scope.ifBiggerThan);
             }
           });
 
