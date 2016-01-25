@@ -76,7 +76,7 @@
                 visibility: 'hidden'
               });
             element.after(clone);
-            var realHeight = clone.height();
+            var realHeight = clone.outerHeight();
             clone['remove']();
             return realHeight;
           };
