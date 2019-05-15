@@ -1,3 +1,8 @@
+NOTICE: This project has been retired as there are now better ways of accomplishing equal height elements with simpler methods. Here are some examples:
+- [CSS Table Cell](https://www.w3schools.com/howto/howto_css_equal_height.asp)
+- [CSS Flexbox Stretch](https://cssreference.io/flexbox/)
+- [Flex Layout for Angular 2+](https://github.com/angular/flex-layout/wiki/Declarative-API-Overview)
+
 # AngularJS Vertilize Directive
 
 An [AngularJS](http://angularjs.org/) directive to vertically equalize a group of elements with varying heights. In other words, it dynamically makes a group of elements the same height.
