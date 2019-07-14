@@ -1,5 +1,5 @@
 /*!
- * angular-vertilize 1.0.1
+ * angular-vertilize 1.0.2
  * Christopher Collins
  * https://github.com/Sixthdim/angular-vertilize.git
  * License: MIT
@@ -41,6 +41,11 @@
                 height = Math.max(height, _this.childrenHeights[i]);
               }
               return height;
+            };
+
+            // reApply helper for child directives
+            _this.reApply = function(){
+                return $scope.$apply();
             };
 
             // Add window resize to digest cycle
@@ -99,4 +104,17 @@
     }
   ]);
 
+  // Vertilize resource
+  module.directive("vertilizeResource", [function() {
+      return {
+          restrict: "A",
+          require: "^vertilizeContainer",
+          link: function(scope, element, attrs, parent) {
+              element.bind('load', function() {
+                  console.log('loaded');
+                  parent.reApply();
+              });
+          }
+      }
+  }]);
 }());

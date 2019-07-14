@@ -1,5 +1,9 @@
 {
   "name": "angular-vertilize",
-  "version": "1.0.0",
-  "repository": "https://github.com/Sixthdim/angular-vertilize.git"
+  "version": "1.0.2",
+  "repository": "https://github.com/Sixthdim/angular-vertilize.git",
+  "contributors": [{
+    "name": "Nils Gajsek",
+    "email": "info@linslin.org"
+  }]
 }
