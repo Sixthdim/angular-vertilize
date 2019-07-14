@@ -15,8 +15,9 @@
       return {
         restrict: 'EA',
         controller: [
-          '$scope', '$window',
-          function($scope, $window){
+          '$scope', '$window', '$attrs',
+          function($scope, $window, $attrs){
+
             // Alias this
             var _this = this;
 
@@ -34,13 +35,21 @@
               _this.childrenHeights[index] = height;
             };
 
-            // API: Get tallest height
+            // API: Get smallest/tallest height
             _this.getTallestHeight = function(){
-              var height = 0;
+
+              var heights = [];
+
               for (var i=0; i < _this.childrenHeights.length; i=i+1){
-                height = Math.max(height, _this.childrenHeights[i]);
+                heights.push(_this.childrenHeights[i]);
               }
-              return height;
+
+              if($attrs.vertilizeContainer && $attrs.vertilizeContainer.toLowerCase() == 'min'){
+                return Math.min.apply(null, heights) || 0;
+              } else {
+                return Math.max.apply(null, heights) || 0;
+              }
+
             };
 
             // Add window resize to digest cycle
