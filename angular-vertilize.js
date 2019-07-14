@@ -47,6 +47,10 @@
             angular.element($window).bind('resize', function(){
               return $scope.$apply();
             });
+
+            angular.element($window).bind('click', function(){
+              _this.childrenHeights = [];
+            });
           }
         ]
       };
