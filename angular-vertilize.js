@@ -47,6 +47,11 @@
             angular.element($window).bind('resize', function(){
               return $scope.$apply();
             });
+            $scope.$on('$destroy', function() {
+              angular.element($window).off('resize',  function(){
+                return $scope.$apply();
+              });
+            });
           }
         ]
       };
@@ -61,7 +66,8 @@
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
           // My index allocation
-          var myIndex = parent.allocateMe();
+          var myIndex = parent.allocateMe(),
+              watchers = [];
 
           // Get my real height by cloning so my height is not affected.
           var getMyRealHeight = function(){
@@ -82,18 +88,22 @@
           };
 
           // Watch my height
-          scope.$watch(getMyRealHeight, function(myNewHeight){
+          watchers.push(scope.$watch(getMyRealHeight, function(myNewHeight){
             if (myNewHeight){
               parent.updateMyHeight(myIndex, myNewHeight);
             }
-          });
+          }));
 
           // Watch for tallest height change
-          scope.$watch(parent.getTallestHeight, function(tallestHeight){
+          watchers.push(scope.$watch(parent.getTallestHeight, function(tallestHeight){
             if (tallestHeight){
               element.css('height', tallestHeight);
             }
-          });
+          }));
+
+           scope.$on('$destroy', function() {
+              angular.forEach(watchers, function(watcher) { watcher() });
+            });
         }
       };
     }
