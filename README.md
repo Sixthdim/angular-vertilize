@@ -20,7 +20,7 @@ First, add `angular.vertilize` to your Angular application module dependencies. 
 ```
 
 ## How it works
-The `vertilize-container` directive groups and gives scope to it's child `vertilize` directives. The `vertilize` elements DO NOT need to be the immediate children of `vertilize-container` and can be on any kind of element, as long as its CSS `display` property is set to `block` or `inline-block`. When any of the `vertilize` elements' height changes to become the tallest sibling, either due to a window resize, element width change, or content being added or removed, all siblings set their height to match.
+The `vertilize-container` directive groups and gives scope to it's child `vertilize` directives. The `vertilize` elements DO NOT need to be the immediate children of `vertilize-container` and can be on any kind of element, as long as its [CSS `display` property](https://www.scaler.com/topics/css/display-property-in-css/) is set to `block` or `inline-block`. When any of the `vertilize` elements' height changes to become the tallest sibling, either due to a window resize, element width change, or content being added or removed, all siblings set their height to match.
 
 ## Demo
 Open the `index.html` file in your web browser or go to [http://sixthdim.github.io/angular-vertilize](http://sixthdim.github.io/angular-vertilize).
